@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 
-export const PublicRoute = ({
+export const NakedRoute = ({
     isAuthenticated,
     component: Component,
     ...rest
@@ -15,4 +15,4 @@ export const PublicRoute = ({
     </div>
 );
 
-export default PublicRoute;
+export default NakedRoute;
