@@ -16,6 +16,7 @@ import {firebase} from './firebase/firebase';
  * Route --- wrapper for a page
  * Switch --- go sequentially like the CPP switchcase
  * Link --- change path without a --> magic happens inside it
+ * Test for the second commit with default branch
  */
 
 const store = configureStore();
