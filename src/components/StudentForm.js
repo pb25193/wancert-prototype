@@ -20,17 +20,17 @@ class StudentForm extends React.Component {
     onRollNumberChange = (e) => {
         const rollNumber = e.target.value;
         this.setState(()=>({ rollNumber }));
-    }
+    };
 
     onDepartmentChange = (e) => {
         const department = e.target.value;
         this.setState(()=>({ department }));
-    }
+    };
 
     onMinorChange = (e) => {
         const minor = e.target.value;
         this.setState(()=>({ minor }));
-    }
+    };
 
     onCollegeChange = (e) => {
         const college = e.target.value;
@@ -40,17 +40,17 @@ class StudentForm extends React.Component {
     onNameChange = (e) => {
         const name = e.target.value;
         this.setState(()=>({ name }));
-    }
+    };
 
     onGpaChange = (e) => {
         const gpa = e.target.value;
         if(!gpa || gpa.match(/^\d{1,}(\.\d{0,2})?$/)) this.setState(()=>({ gpa }));
-    }
+    };
 
     onBatchChange = (e) => {
         const batch = e.target.value;
         if(!batch || batch.match(/^\d{1,}(\.\d{0,2})?$/)) this.setState(()=>({ batch }));
-    }
+    };
 
     onSubmit = (e) => {
         e.preventDefault();
@@ -69,7 +69,7 @@ class StudentForm extends React.Component {
             })
         }
 
-    }
+    };
 
     render(){
         return (
@@ -133,7 +133,7 @@ class StudentForm extends React.Component {
                     <button className="button">Add Student</button>
                 </div>
             </form>
-        )
+        );
     }
 };
 
