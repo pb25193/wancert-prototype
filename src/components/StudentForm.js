@@ -13,7 +13,9 @@ class StudentForm extends React.Component {
             minor: props.student ? props.student.minor : '',
             gpa: props.student ? props.student.gpa.toString() : '',
             batch: props.student ? props.student.batch.toString() : '',
-            error: ""
+            error: "",
+            clickedButton: ""
+            
         };
     }
 
@@ -53,12 +55,30 @@ class StudentForm extends React.Component {
     };
 
     onSubmit = (e) => {
+        switch(this.state.clickedButton) {
+            case "download-all-students":
+                this.onDownloadAllStudentsClick(e);
+                break;
+            case "add-student":
+                this.onAddStudentClick(e);
+                break;
+            default:
+                console.log("AddStudentForm button state is invalid, this shouldnt have ever happened.");
+        }
+    };
+
+    onDownloadAllStudentsClick = (e) => {
+        e.preventDefault();
+        this.props.onDownloadAllStudentsClick();
+    };
+
+    onAddStudentClick = (e) => {
         e.preventDefault();
         if(false){
             this.setState(()=>({error: "Please provide description and amount"}));
         } else {
             this.setState(()=>({error: ""}));
-            this.props.onSubmit({
+            this.props.onAddStudentClick({
                 name: this.state.name,
                 rollNumber: this.state.rollNumber,
                 college: this.state.college,
@@ -130,7 +150,22 @@ class StudentForm extends React.Component {
                     onChange={this.onMinorChange}
                 />
                 <div>
-                    <button className="button">Add Student</button>
+                <button 
+                    className="button"
+                    onClick={() => (this.state.clickedButton = "add-student")}
+                    type="submit"
+                >
+                    Add Student
+                </button>
+                {/*
+                <button 
+                    className="button"
+                    onClick={() => (this.state.clickedButton = "download-all-students")}
+                    type="submit"
+                >
+                    Download JSON
+                </button>
+                */}
                 </div>
             </form>
         );
