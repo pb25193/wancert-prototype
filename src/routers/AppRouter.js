@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Router, Route, Switch} from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import StudentAddPage from '../components/StudentAddPage';
 import NotFoundPage from '../components/NotFoundPage';
 import HeaderRoute from './HeaderRoute';
+import Wallet, { WalletContext } from '../wallet/Wallet';
+
 
 export const history = createHistory();
 
 
-const AppRouter = () => (
+const AppRouter = () => {
+    const [wallet, setWallet] = useState({});
+
+    return (
     <Router history={history}>
         <div>
+            <Wallet wallet={wallet} setWallet={setWallet} />
             <Switch>
-                <HeaderRoute path="/" component={StudentAddPage} exact = {true} />
+                <HeaderRoute path="/" component={StudentAddPage} exact = {true} wallet={wallet} />
                 <Route component={NotFoundPage} />
             </Switch>
         </div>
     </Router>
-);
+)};
 
 /**
  * props from Route:

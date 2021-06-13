@@ -6,10 +6,11 @@ import Header from '../components/Header';
 export const HeaderRoute = ({
     isAuthenticated,
     component: Component,
+    wallet,
     ...rest
 }) => (
     <div>
-        <Header />
+        <Header wallet={wallet} />
         <Route 
             {...rest} 
             component={Component}
