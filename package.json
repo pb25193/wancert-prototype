@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Partha Bhattacharya",
   "license": "MIT",
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
